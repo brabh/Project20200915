@@ -1,5 +1,6 @@
 //#pragma once
 
+#include <iostream>
 
 int f1(int);
 int f1(int i, int j);
@@ -8,4 +9,4 @@ int f1(int*);
 
 int* f2(int*);
 
-
+int* f3(int* p, int N);

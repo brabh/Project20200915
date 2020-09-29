@@ -5,7 +5,9 @@
 
 int f1(int i) {
 
-	return i;
+	int z = i;
+
+	return z;
 }
 
 
@@ -29,8 +31,30 @@ int f1(int* p) {
 
 int* f2(int* p) {
 
-	int z = *p;
+	//int z = *p; // Dangling reference
 
-	return &z;
+	int* z = new int;
+
+	*z = *p;
+
+	return z; 
 }
 
+
+int* f3(int* p, int N) {
+
+	//int ax[100];
+
+	int* ax = new int[N];
+
+	for (int i = 0; i < N; ++i)
+		//*(ax + i) = *(p + i);
+		ax[i] = p[i];
+
+	//for (auto e : ax)
+	//	std::cout << "e =  " << e << std::endl;
+
+
+
+	return ax;
+}
