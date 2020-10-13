@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <utility>
+#include <initializer_list>
 
 int f1(int);
 int f1(int i, int j);
@@ -23,7 +25,14 @@ public:
 	double d;
 	std::string s;
 
+
 	M();
+	M(int, double, std::string);
+	explicit M(const M&);// = default;
+
+	M& operator=(const M&);// = default;
+
+	~M();// = default;
 
 };
 

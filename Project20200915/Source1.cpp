@@ -75,4 +75,19 @@ std::vector<int> f4(std::vector<int>& w) {
 
 M::M() { std::cout << "Hello from default konstruktor" << std::endl; }
 
+M::M(int i, double d, std::string s) : i{ i }, d{ d }, s{ s } {
+	//this->i = i; veraltet
+}
 
+M::M(const M& r) : i{ r.i }, d{ r.d }, s{ s } {}
+
+M& M::operator=(const M& r){
+	this->i = r.i;
+	this->d = r.d;
+	this->s = r.s;
+
+	return *this;
+}
+
+
+M::~M(){ std::cout << "default destruktor" << std::endl; }

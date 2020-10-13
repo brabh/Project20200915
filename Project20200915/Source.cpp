@@ -102,13 +102,54 @@ int main() {
 	for (const auto& e : v)
 		std::cout << "sorted e =  " << e << std::endl;
 
-	M m1;
-	M* pm = new M[10];// heap
-	M am[10];// stack
-	std::vector<M> vm;
+	
+	//M* pm = new M[10];// heap
+	//M am[10];// stack
+	//std::vector<M> vm;
+
+	//M mv, mv1;
+	//vm.push_back(mv);
+	//vm.push_back(mv1);
+
+	std::vector<M*> vp;
+	vp.push_back(new M);
+	vp.push_back(new M);
+
+	for (auto p : vp)
+		delete p;
+
+	M m0;
 
 
-	delete[] pm;
+
+	M m1{ m0 };// = m0; // copy construktor
+	M m2(); // function declaration
+	M m3{m0};// copy construktor
+
+	int i1 = 0; // copy constuktor
+	int i2(); // function declaration
+	int i3{7}; // copy constuktor
+
+	M m4;
+	m4 = m0; // assignment operator
+
+	M m5 { 1,2.5,"Hello" };
+
+	M m9 { 1,2.5,"Hello" };
+	M m10{ std::move(m9) };
+	std::cout << "m10  " << m10.i << m10.d << m10.s << std::endl;
+	std::cout << "m9   " << m9.i << m9.d << m9.s << std::endl;
+
+
+
+	M m11;
+	M m12;
+
+	m12 = std::move(m11);
+
+
+
+	//delete[] pm;
 	return 0;
 }
 
